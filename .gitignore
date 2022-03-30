@@ -28,3 +28,7 @@ example-*.tar
 /assets/node_modules
 
 /priv/static
+
+# Ignore local nix folders
+/.nix-hex
+/.nix-mix
