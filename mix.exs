@@ -23,6 +23,8 @@ defmodule Example.MixProject do
   defp deps do
     [
       {:aino, "~> 0.3"},
+      {:ecto_sql, "~> 3.7"},
+      {:postgrex, "~> 0.16"},
       {:vapor, "~> 0.10.0"}
     ]
   end

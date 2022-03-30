@@ -11,7 +11,10 @@ defmodule Example.Application do
   def start(_type, _args) do
     config = Vapor.load!(Config)
 
-    children = aino(config.application)
+    children = [
+      {Example.Repo, []}
+      | aino(config.application)
+    ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

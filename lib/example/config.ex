@@ -9,4 +9,10 @@ defmodule Example.Config do
            {:port, "PORT", default: 4000, map: &String.to_integer/1},
            {:host, "HOST", default: "localhost"}
          ])
+
+  config :database,
+         env([
+           {:database_url, "DATABASE_URL"},
+           {:pool_size, "POOL_SIZE", default: 5, map: &String.to_integer/1}
+         ])
 end
