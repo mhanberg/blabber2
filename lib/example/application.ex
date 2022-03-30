@@ -5,16 +5,13 @@ defmodule Example.Application do
 
   use Application
 
+  alias Example.Config
+
   @impl true
   def start(_type, _args) do
-    children = [
-      {Aino,
-       callback: Example.Web.Handler,
-       port: 4000,
-       host: "localhost",
-       otp_app: :example,
-       environment: "development"}
-    ]
+    config = Vapor.load!(Config)
+
+    children = aino(config.application)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -22,7 +19,25 @@ defmodule Example.Application do
     Supervisor.start_link(children, opts)
   end
 
-    def watchers("development") do
+  defp aino(config) do
+    case config.environment != "test" do
+      true ->
+        [
+          {Aino,
+           callback: Example.Web.Handler,
+           otp_app: :example,
+           port: config.port,
+           host: config.host,
+           environment: config.environment},
+          {Aino.Watcher, name: Tapio.Watcher, watchers: watchers(config.environment)}
+        ]
+
+      false ->
+        []
+    end
+  end
+
+  defp watchers("development") do
     [
       [
         command: "node_modules/yarn/bin/yarn",
@@ -32,5 +47,5 @@ defmodule Example.Application do
     ]
   end
 
-  def watchers(_), do: []
+  defp watchers(_), do: []
 end

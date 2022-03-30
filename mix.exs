@@ -22,7 +22,8 @@ defmodule Example.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:aino, "~> 0.2"}
+      {:aino, "~> 0.3"},
+      {:vapor, "~> 0.10.0"}
     ]
   end
 end
