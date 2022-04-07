@@ -1,9 +1,9 @@
-defmodule Example.Repo do
+defmodule Blabber.Repo do
   use Ecto.Repo,
-    otp_app: :example,
+    otp_app: :blabber,
     adapter: Ecto.Adapters.Postgres
 
-  alias Example.Config
+  alias Blabber.Config
 
   def init(_type, config) do
     vapor_config = Vapor.load!(Config)

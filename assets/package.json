@@ -5,6 +5,7 @@
     "build:css:watch": "WATCH=true postcss ./css/app.scss --verbose --output ../priv/static/css/app.css --watch"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.0",
     "autoprefixer": "^10.3.7",
     "esbuild": "^0.12.6",
     "postcss": "^8.3.11",

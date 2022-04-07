@@ -1,24 +1,24 @@
-defmodule Example.Application do
+defmodule Blabber.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
 
   use Application
 
-  alias Example.Config
+  alias Blabber.Config
 
   @impl true
   def start(_type, _args) do
     config = Vapor.load!(Config)
 
     children = [
-      {Example.Repo, []}
+      {Blabber.Repo, []}
       | aino(config.application)
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Example.Supervisor]
+    opts = [strategy: :one_for_one, name: Blabber.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -27,8 +27,8 @@ defmodule Example.Application do
       true ->
         [
           {Aino,
-           callback: Example.Web.Handler,
-           otp_app: :example,
+           callback: Blabber.Web.Handler,
+           otp_app: :blabber,
            port: config.port,
            host: config.host,
            environment: config.environment},
@@ -42,11 +42,11 @@ defmodule Example.Application do
 
   defp watchers("development") do
     [
-      [
-        command: "node_modules/yarn/bin/yarn",
-        args: ["build:css:watch"],
-        directory: "assets/"
-      ]
+      # [
+      #   command: "node_modules/yarn/bin/yarn",
+      #   args: ["build:css:watch"],
+      #   directory: "assets/"
+      # ]
     ]
   end
 

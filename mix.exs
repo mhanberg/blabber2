@@ -1,9 +1,9 @@
-defmodule Example.MixProject do
+defmodule Blabber.MixProject do
   use Mix.Project
 
   def project() do
     [
-      app: :example,
+      app: :blabber,
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,7 @@ defmodule Example.MixProject do
   def application() do
     [
       extra_applications: [:logger],
-      mod: {Example.Application, []}
+      mod: {Blabber.Application, []}
     ]
   end
 
@@ -25,7 +25,9 @@ defmodule Example.MixProject do
       {:aino, "~> 0.3"},
       {:ecto_sql, "~> 3.7"},
       {:postgrex, "~> 0.16"},
-      {:vapor, "~> 0.10.0"}
+      {:vapor, "~> 0.10.0"},
+      {:temple, "~> 0.8.0"},
+      {:phoenix_html, "~> 2.14.2 or ~> 3.0"}
     ]
   end
 

@@ -1,3 +1,3 @@
 import Config
 
-config :example, ecto_repos: [Example.Repo]
+config :blabber, ecto_repos: [Blabber.Repo]

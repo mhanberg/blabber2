@@ -7,7 +7,8 @@ if (process.env.WATCH == "true") {
 module.exports = {
   mode,
   purge: [
-    '../lib/example/web/templates/**/*.html.eex'
+    '../lib/blabber/web/templates/**/*.html.eex',
+    '../lib/blabber/web/**/*.ex'
   ],
   darkMode: false,
   theme: {
@@ -16,5 +17,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

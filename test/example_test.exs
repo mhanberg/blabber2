@@ -1,3 +1,3 @@
-defmodule ExampleTest do
+defmodule BlabberTest do
   use ExUnit.Case
 end

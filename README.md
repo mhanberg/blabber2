@@ -1,4 +1,4 @@
-# Aino Example
+# Aino Blabber
 
 ## Setup
 

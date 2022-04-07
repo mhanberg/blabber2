@@ -1,12 +1,14 @@
-defmodule Example.Web.Handler do
+defmodule Blabber.Web.Handler do
   @moduledoc false
 
-  import Aino.Middleware.Routes, only: [routes: 1, get: 3]
+  import Aino.Middleware.Routes, only: [routes: 1, get: 3, post: 3, delete: 3]
 
   @behaviour Aino.Handler
 
   routes([
-    get("/", &Example.Web.Page.root/1, as: :root)
+    get("/", &Blabber.Web.Page.root/1, as: :root),
+    post("/thoughts", &Blabber.Web.Thoughts.create/1, as: :create),
+    delete("/thoughts/:id", &Blabber.Web.Thoughts.delete/1, as: :delete),
   ])
 
   @impl true
@@ -19,7 +21,7 @@ defmodule Example.Web.Handler do
       &Aino.Middleware.Routes.match_route/1,
       &Aino.Middleware.params/1,
       &Aino.Middleware.Routes.handle_route/1,
-      &Example.Web.Layout.wrap/1,
+      &Blabber.Web.Layout.wrap/1,
       &Aino.Middleware.logging/1
     ]
 

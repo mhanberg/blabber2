@@ -1,4 +1,4 @@
-defmodule Example.Config do
+defmodule Blabber.Config do
   use Vapor.Planner
 
   dotenv()
