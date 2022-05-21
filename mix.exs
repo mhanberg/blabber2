@@ -22,11 +22,11 @@ defmodule Blabber.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps() do
     [
-      {:aino, "~> 0.3"},
+      {:aino, "~> 0.4"},
       {:ecto_sql, "~> 3.7"},
       {:postgrex, "~> 0.16"},
       {:vapor, "~> 0.10.0"},
-      {:temple, "~> 0.8.0"},
+      {:temple, "~> 0.9.0-rc.0"},
       {:phoenix_html, "~> 2.14.2 or ~> 3.0"}
     ]
   end

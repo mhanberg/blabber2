@@ -1,4 +1,8 @@
-# Aino Blabber
+# Aino/Temple Blabber
+
+A twitter clone built with [Aino](https://github.com/oestrich/aino) and [Temple](https://github.com/mhanberg/temple).
+
+Built on my Twitch stream, VOD watchable on Youtube https://www.youtube.com/watch?v=kIuSFHi0goo
 
 ## Setup
 

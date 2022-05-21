@@ -2,6 +2,7 @@ defmodule Blabber.Web.Thoughts do
   alias Aino.Token
   alias Blabber.Models.Thought
   alias Blabber.Repo
+  require Logger
 
   def create(token) do
     result =
@@ -11,11 +12,10 @@ defmodule Blabber.Web.Thoughts do
 
     case result do
       {:ok, _thought} ->
-        IO.puts(IO.ANSI.green() <> "Successfully blabbed!" <> IO.ANSI.reset())
+        Logger.info("Successfully blabbed!")
 
       {:error, changeset} ->
-        IO.inspect(changeset, label: "changeset")
-        IO.puts(IO.ANSI.red() <> "Failed to blab!!!" <> IO.ANSI.reset())
+        Logger.error("Failed to blab! #{inspect(changeset)}")
     end
 
     token
